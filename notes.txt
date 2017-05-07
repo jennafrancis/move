@@ -54,3 +54,6 @@ Models:
     has_many :group_classes, through: :category_group_classes
 
 ** validate within reason, show error messages/nav in layout
+
+
+If current_city is set, redirect from "Where are you?" page to city show page
