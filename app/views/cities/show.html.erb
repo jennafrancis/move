@@ -1,10 +1,11 @@
 <h1>Studios in <%= @city.name %></h1>
 <!-- Studios in <your city> -->
 
-<ul>
+
   <% @studios.each do |studio| %>
-  <li><%= studio.name %></li>
+  <div><h3><%= link_to studio.name, studio_path(studio) %></h3>
+  </div><br></br>
   <% end %>
-</ul>
+
 
 <!-- Log in or sign up to leave a review -->

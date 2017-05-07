@@ -1,1 +1,10 @@
 <!-- Class offerings at <this studio> -->
+
+<h1><%= @studio.name %> - <%= @studio.city.name %></h1>
+<h2><%= @studio.street_address %></h2>
+
+<br></br>
+
+<% @studio.group_classes.each do |gc| %>
+  <h4><%= gc.name %> | <%= gc.duration %> minutes</h4><br></br>
+<% end %>
