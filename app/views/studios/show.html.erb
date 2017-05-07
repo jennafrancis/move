@@ -6,5 +6,7 @@
 <br></br>
 
 <% @studio.group_classes.each do |gc| %>
-  <h4><%= gc.name %> | <%= gc.duration %> minutes</h4><br></br>
+  <h4><%= gc.name %> | <%= gc.duration %> minutes</h4>
+  <%= gc.list_categories %><br></br>
+  <!-- Top 2 reviews -->
 <% end %>

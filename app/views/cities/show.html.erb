@@ -3,9 +3,8 @@
 
 
   <% @studios.each do |studio| %>
-  <div><h3><%= link_to studio.name, studio_path(studio) %></h3>
+  <div><h3><%= link_to studio.name, studio_path(studio) %> - <%= studio.street_address %></h3>
+    Classes: <%= studio.group_classes.map{|gc| gc.name}.join(", ") %>
+
   </div><br></br>
   <% end %>
-
-
-<!-- Log in or sign up to leave a review -->
