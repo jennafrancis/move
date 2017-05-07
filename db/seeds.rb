@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+City.create(name: "New York City")
+City.create(name: "San Francisco")
+City.create(name: "Los Angeles")
+
+Studio.create(name: "Cyc", street_address: "40 Bond St", city_id: 1)
+Studio.create(name: "Namaste", street_address: "535 Park Ave", city_id: 1)
+Studio.create(name: "CrossFit", street_address: "85 Broad St", city_id: 1)
+Studio.create(name: "Frame", street_address: "2531 Filbert St", city_id: 2)
+Studio.create(name: "OrangeTheory", street_address: "230 Venice Blvd", city_id: 3)
+
+Category.create(name: "HIIT")
+Category.create(name: "Cardio")
+Category.create(name: "Cycling")
+Category.create(name: "Strength")
+Category.create(name: "Yoga")
+
+GroupClass.create(name: "Signature 45", duration: 45, studio_id: 1, category_ids: [2,3])
+GroupClass.create(name: "Superstar 60", duration: 60, studio_id: 1, category_ids: [2,3])
+GroupClass.create(name: "Sunrise 30", duration: 30, studio_id: 1, category_ids: [2,3])
+GroupClass.create(name: "Vinyasa Flow", duration: 75, studio_id: 2, category_ids: [5])
+GroupClass.create(name: "Sweaty Flow", duration: 60, studio_id: 2, category_ids: [5])
+GroupClass.create(name: "Restorative", duration: 90, studio_id: 2, category_ids: [5])
+GroupClass.create(name: "Shred", duration: 60, studio_id: 3, category_ids: [1,2,4])
+GroupClass.create(name: "Gain", duration: 60, studio_id: 3, category_ids: [1,4])
+GroupClass.create(name: "Dance Cardio", duration: 45, studio_id: 4, category_ids: [2])
+GroupClass.create(name: "Orange 60", duration: 60, studio_id: 5, category_ids: [1,2,4])

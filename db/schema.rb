@@ -13,16 +13,12 @@
 ActiveRecord::Schema.define(version: 20170506175207) do
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "category_group_classes", force: :cascade do |t|
-    t.integer  "category_id"
-    t.integer  "group_class_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer "category_id"
+    t.integer "group_class_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -31,17 +27,15 @@ ActiveRecord::Schema.define(version: 20170506175207) do
 
   create_table "group_classes", force: :cascade do |t|
     t.string  "name"
-    t.string  "instructor"
+    t.integer "duration"
     t.integer "studio_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "rating"
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "group_class_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer "rating"
+    t.string  "content"
+    t.integer "user_id"
+    t.integer "group_class_id"
   end
 
   create_table "studios", force: :cascade do |t|
