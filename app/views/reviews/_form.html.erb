@@ -1,1 +1,7 @@
-hi i'm a form
+<%= form_for @review do |f| %>
+  <%= f.label "Rate this class (1-5)" %>
+  <%= f.number_field :rating, in: 1...6 %><br>
+  <%= f.label "What did you think?" %>
+  <%= f.text_field :content %><br>
+  <%= f.submit %><br>
+<% end %>
