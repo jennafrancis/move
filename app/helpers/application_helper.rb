@@ -1,5 +1,5 @@
 module ApplicationHelper
-  # def current_city
-  #   @current_city ||= City.find(city)
-  # end
+    def current_city
+    @current_city ||= City.find(session[:city_id])
+  end
 end

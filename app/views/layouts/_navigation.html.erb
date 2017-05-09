@@ -1,4 +1,4 @@
-<%= link_to "Change City", root_path %>
+<%= link_to "Change City", root_path if current_city %>
 <% if current_user %>
 Signed in as <%= current_user.email %>
 <%= link_to "Leave a Review", new_review_path %>
