@@ -5,7 +5,7 @@
 <br>
 
 <% @studio.group_classes.each do |gc| %>
-  <h4><%= gc.name %> | <%= gc.duration %> minutes <%= button_to "Leave a Review", new_review_path if current_user%></h4>
+  <h4><%= gc.name %> | <%= gc.duration %> minutes</h4>
   <%= gc.list_categories %><br></br>
   <!-- Top 2 reviews -->
 <% end %>
