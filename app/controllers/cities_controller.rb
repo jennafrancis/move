@@ -10,7 +10,6 @@ class CitiesController < ApplicationController
   end
 
   def show
-    # @city = City.find(params[:id])
     @studios = Studio.where('city_id = ?', current_city.id)
     #separate studio db logic to studio controller
   end
