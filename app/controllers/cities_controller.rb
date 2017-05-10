@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
   def index
-    # redirect_to '/cities/:id' if current_city
+    redirect_to '/cities/:id' if current_city
   end
 
   def set_city
