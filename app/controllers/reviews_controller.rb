@@ -1,11 +1,12 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
+    @classes = GroupClass.where('studio_id = ?', session[:studio_id])
   end
 
   def create
-    @group_classes = GroupClass.all
-    raise params.inspect
+    @group_classes = GroupClass.where('studio_id = ?', session[:studio_id])
+    # raise params.inspect
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save

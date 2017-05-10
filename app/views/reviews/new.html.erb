@@ -1,8 +1,10 @@
 <h2>Leave a review</h2>
 
 <%= form_for @review do |f| %>
-  <%= f.label "Which class did you take?" %>
-  <%= f.collection_select :group_class_id, @group_classes, :id, :name, prompt: :true %><br>
+  <%= f.label "Choose a class" %>
+  <%= f.collection_select :group_class_id, @classes, :id, :name, prompt: :true %><br>
+  <%= f.label "Or add a new one" %><br>
+<!-- custom attribute writer to add new groupclass -->
   <%= f.label "Rate this class (1-5)" %>
   <%= f.number_field :rating, in: 1...6 %><br>
   <%= f.label "What did you think?" %>
