@@ -4,6 +4,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @group_classes = GroupClass.all
+    raise params.inspect
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save
