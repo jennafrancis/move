@@ -7,7 +7,6 @@
 <% @studio.group_classes.each do |gc| %>
   <h4><%= link_to gc.name, group_class_path(gc) %> | <%= gc.duration %> minutes</h4>
   <%= gc.list_categories %><br></br>
-  <!-- method to pull top 2 reviews -->
   <%= gc.reviews.first.rating %>/5 "<%= gc.reviews.first.content %>" <br>
   - <%= gc.reviews.first.user.email %><br></br>
 <% end %>
