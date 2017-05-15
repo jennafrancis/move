@@ -3,7 +3,7 @@
 
 <% @gc.reviews.each do |review| %>
   <%= review.rating %>/5 "<%= review.content %>" <br>
-  - <%= review.user.email %><br></br>
+  - <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
 <% end %>
 
 <%= link_to "Leave a review", new_review_path if current_user %>
