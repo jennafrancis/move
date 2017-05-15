@@ -1,18 +1,23 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    @classes = GroupClass.where('studio_id = ?', session[:studio_id])
+    @classes = GroupClass.where('studio_id = ?', current_studio)
   end
 
   def create
     # raise params.inspect
-    @classes = GroupClass.where('studio_id = ?', session[:studio_id])
+    @classes = GroupClass.where('studio_id = ?', current_studio)
     @review = Review.new(review_params)
     @review.user = current_user
-    if @review.save
-      redirect_to review_path(@review)
-    else
+    if !params[:review][:group_class_id].blank? && !params[:review][:group_class_attributes][:name].blank?
+      @review.errors.add("Please select a class or create a new one, not both")
       render :new
+    else
+      if @review.save
+        redirect_to review_path(@review)
+      else
+        render :new
+      end
     end
   end
 
