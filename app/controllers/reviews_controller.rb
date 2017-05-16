@@ -10,11 +10,14 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if !params[:review][:group_class_id].blank? && !params[:review][:group_class_attributes][:name].blank?
-      @review.errors.add("Please select a class or create a new one, not both")
+      flash[:error] = "Please select a class or create a new one, not both."
+      render :new
+    elsif params[:review][:group_class_attributes][:duration].to_i > 360
+      flash[:error] = "Invalid group class duration. Please try again."
       render :new
     else
       if @review.save
-        redirect_to review_path(@review)
+        redirect_to group_class_path(@review.group_class)
       else
         render :new
       end
@@ -42,6 +45,7 @@ class ReviewsController < ApplicationController
         :name,
         :duration,
         :studio_id
-        ])
+        ]
+      )
   end
 end
