@@ -11,4 +11,8 @@ class Review < ApplicationRecord
       self.group_class = gc
     end
   end
+
+  def self.best_review
+    order(rating: :DESC).first
+  end
 end
