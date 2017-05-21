@@ -5,7 +5,7 @@
 <br>
 
 <% @studio.group_classes.each do |gc| %>
-  <h4><%= link_to gc.name, group_class_path(gc) %> | <%= gc.duration %> minutes</h4>
+  <h4><%= link_to gc.name, studio_group_class_path(gc) %> | <%= gc.duration %> minutes</h4>
   <%= gc.list_categories %> | <%= gc.average_rating %>/5 Average | <%= gc.review_count %> reviews<br></br>
   <% if gc.reviews.best_review %>
     <%= gc.reviews.best_review.rating %>/5 "<%= gc.reviews.best_review.content %>" <br>
