@@ -1,12 +1,16 @@
 <h1><%= @gc.name %> at <%= link_to @gc.studio.name, studio_path(@gc.studio) %></h1>
 <h3><%= @gc.duration %> minutes | <%= @gc.list_categories %><br>
-<%= @gc.average_rating %>/5 Average | <%= @gc.review_count %> reviews</h3>
+<% if @gc.reviews.first %>
+  <%= @gc.average_rating %>/5 Average | <%= @gc.review_count %> reviews</h3>
 
 
-<h4>Users said:</h4>
-<% @gc.reviews.each do |review| %>
-  <%= review.rating %>/5 "<%= review.content %>" <br>
-  - <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+  <h4>Users said:</h4>
+  <% @gc.reviews.each do |review| %>
+    <%= review.rating %>/5 "<%= review.content %>" <br>
+    - <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+  <% end %>
+<% else %>
+  There are no reviews yet for this class!
 <% end %>
 
 <%= link_to "Leave a review", new_review_path if current_user %>

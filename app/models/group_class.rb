@@ -7,7 +7,6 @@ class GroupClass < ApplicationRecord
 
   validates :duration, numericality: { less_than: 360 }
 
-  # method for avg rating, # of reviews
   def list_categories
     categories.map{|cat| cat.name}.join(", ")
   end
@@ -17,6 +16,7 @@ class GroupClass < ApplicationRecord
   end
 
   def average_rating
+    # binding.pry
     sum = reviews.map{|r| r.rating}.reduce(:+)
     sum/self.review_count.to_f
   end
