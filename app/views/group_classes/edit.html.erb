@@ -1,1 +1,12 @@
-edit page
+<h2>Add a category to <%= link_to @gc.name, group_class_path(@gc) %></h2>
+
+<%= form_for @gc do |f| %>
+Pick some categories<br>
+<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><br>
+Or add a new one<br>
+<%= f.fields_for :categories, @gc.categories.build do |cat_fields| %>
+  <%= cat_fields.label :name %>
+  <%= cat_fields.text_field :name %>
+  <% end %><br>
+  <%= f.submit %>
+<% end %>
