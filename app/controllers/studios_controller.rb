@@ -13,9 +13,9 @@ class StudiosController < ApplicationController
   end
 
   def create
-    studio = Studio.new(studio_params)
-    if studio.save
-      redirect_to studio_path(studio)
+    @studio = Studio.new(studio_params)
+    if @studio.save
+      redirect_to studio_path(@studio)
     else
       render :new
     end
