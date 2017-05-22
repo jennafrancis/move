@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/cities', to: 'cities#set_city'
   resources :group_classes, only: :show
   resources :reviews, only: [:new, :create, :show, :update, :destroy]
-  resources :studios, only: :show do
+  resources :studios, only: [:show, :index] do
     resources :group_classes, only: :show
   end
   resources :users, only: :show

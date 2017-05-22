@@ -1,0 +1,7 @@
+<h1>Studios in <%= current_city.name %></h1>
+
+<% @studios.each do |studio| %>
+  <div><h3><%= link_to studio.name, studio_path(studio) %> - <%= studio.street_address %></h3>
+    Classes: <%= studio.group_classes.map{|gc| gc.name}.join(", ") %>
+  </div><br></br>
+<% end %>
