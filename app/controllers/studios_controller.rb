@@ -9,9 +9,16 @@ class StudiosController < ApplicationController
   end
 
   def new
+    @studio = Studio.new
   end
 
   def create
+    studio = Studio.new(studio_params)
+    if studio.save
+      redirect_to studio_path(studio)
+    else
+      render :new
+    end
   end
 
   def show
@@ -22,15 +29,6 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:review).permit(
-      :rating,
-      :content,
-      :group_class_id,
-      group_class_attributes:[
-        :name,
-        :duration,
-        :studio_id
-        ]
-      )
+    params.require(:studio).permit(:name, :street_address, :city_id)
   end
 end

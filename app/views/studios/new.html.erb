@@ -1,0 +1,11 @@
+<h1>Add a new studio:</h1>
+
+<%= form_for @studio do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :street_address %>
+  <%= f.text_field :street_address %><br>
+  <%= f.label :city_id %>
+  <%= f.collection_select :city_id, City.all, :id, :name %><br>
+  <%= f.submit %>
+<% end %>
