@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'cities#index'
+  root 'studios#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :cities, only: [:index, :show]
   post '/cities', to: 'cities#set_city'
