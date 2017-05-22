@@ -1,0 +1,8 @@
+<h1><%= @user.email %></h1>
+
+<h3>Reviews:</h3>
+
+<% @user.reviews.each do |review| %>
+  <%= review.rating %>/5 "<%= review.content %>" <br>
+  - <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+<% end %>
