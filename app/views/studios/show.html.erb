@@ -1,4 +1,4 @@
-<h1><%= @studio.name %> - <%= @studio.city.name %></h1>
+<h1><%= @studio.name %> - <%= link_to current_city.name, root_path %></h1>
 <h2><%= @studio.street_address %></h2>
 <%= link_to "Leave a review", new_review_path if current_user %>
 
@@ -9,7 +9,7 @@
     <h4><%= link_to gc.name, studio_group_class_path(@studio, gc) %> | <%= gc.duration %> minutes</h4>
     <%= gc.list_categories %> |
     <% if gc.reviews.best_review %>
-    <%= gc.average_rating %>/5 Average | <%= gc.review_count %> reviews<br></br>
+    <%= gc.average_rating %>/5 Average | <%= pluralize(gc.reviews.count, "Review") %><br></br>
       <%= gc.reviews.best_review.rating %>/5 "<%= gc.reviews.best_review.content %>" <br>
       - <%= gc.reviews.best_review.user.email %><br></br>
       <% else %>
