@@ -13,4 +13,14 @@ class User < ApplicationRecord
    end
  end
 
+ def review_count
+   reviews.count
+ end
+
+ def average_rating
+   # binding.pry
+   sum = reviews.map{|r| r.rating}.reduce(:+)
+   sum/self.review_count.to_f
+ end
+
 end
