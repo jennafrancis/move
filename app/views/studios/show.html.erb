@@ -4,14 +4,18 @@
 
 <br>
 
-<% @studio.group_classes.each do |gc| %>
-  <h4><%= link_to gc.name, studio_group_class_path(@studio, gc) %> | <%= gc.duration %> minutes</h4>
-  <%= gc.list_categories %> |
-  <% if gc.reviews.best_review %>
-  <%= gc.average_rating %>/5 Average | <%= gc.review_count %> reviews<br></br>
-    <%= gc.reviews.best_review.rating %>/5 "<%= gc.reviews.best_review.content %>" <br>
-    - <%= gc.reviews.best_review.user.email %><br></br>
-    <% else %>
-    There are no reviews for this class yet!
+<% if @studio.group_classes.first %>
+  <% @studio.group_classes.each do |gc| %>
+    <h4><%= link_to gc.name, studio_group_class_path(@studio, gc) %> | <%= gc.duration %> minutes</h4>
+    <%= gc.list_categories %> |
+    <% if gc.reviews.best_review %>
+    <%= gc.average_rating %>/5 Average | <%= gc.review_count %> reviews<br></br>
+      <%= gc.reviews.best_review.rating %>/5 "<%= gc.reviews.best_review.content %>" <br>
+      - <%= gc.reviews.best_review.user.email %><br></br>
+      <% else %>
+      There are no reviews for this class yet!
+    <% end %>
   <% end %>
+<% else %>
+    This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!
 <% end %>

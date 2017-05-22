@@ -8,8 +8,29 @@ class StudiosController < ApplicationController
     end
   end
 
+  def new
+  end
+
+  def create
+  end
+
   def show
     session[:studio_id] = params[:id]
     @studio = current_studio
+  end
+
+  private
+
+  def studio_params
+    params.require(:review).permit(
+      :rating,
+      :content,
+      :group_class_id,
+      group_class_attributes:[
+        :name,
+        :duration,
+        :studio_id
+        ]
+      )
   end
 end

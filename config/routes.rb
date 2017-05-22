@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   root 'studios#index'
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :cities, only: [:index, :show]
+
+  resources :cities, only: :index
   post '/cities', to: 'cities#set_city'
-  resources :group_classes, only: :show
-  resources :reviews, only: [:new, :create, :show, :update, :destroy]
-  resources :studios, only: [:show, :index] do
-    resources :group_classes, only: :show
-  end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: :show
+
+  resources :studios, only: [:index, :new, :create, :show] do
+    resources :group_classes, only: [:show]
+  end
+  resources :group_classes, only: [:show, :edit, :update]
+  
+  resources :reviews, only: [:new, :create, :show, :update, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

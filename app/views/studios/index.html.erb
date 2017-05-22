@@ -5,3 +5,5 @@
     Classes: <%= studio.group_classes.map{|gc| gc.name}.join(", ") %>
   </div><br></br>
 <% end %>
+
+Don't see the studio you were looking for? Add a studio <%= link_to "here", new_studio_path %>.
