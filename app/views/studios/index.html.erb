@@ -4,13 +4,15 @@
   <div><h3><%= link_to studio.name, studio_path(studio) %> - <%= studio.street_address %></h3>
     <% if studio.group_classes.first %>
       Classes include: <%= studio.group_classes.map{|gc| gc.name}.join(", ") %>
+      <% else %>
+      This studio doesn't have any classes yet!
     <% end %>
   </div><br></br>
 <% end %>
 
-Don't see the studio you're looking for?
+Don't see the studio or class you're looking for?
 <% if current_user %>
   Add a studio <%= link_to "here", new_studio_path %>.
 <% else %>
-  <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to add a studio.
+  <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to add a studio or class.
 <% end %>
