@@ -1,0 +1,3 @@
+<%= @group_class.name %> at <%= link_to @group_class.studio.name, studio_path(@group_class.studio) %><br>
+<%= @group_class.duration %> minutes | <%= @group_class.list_categories %>
+  <%= link_to "(Edit categories)", edit_group_class_path(@group_class) if current_user %><br>

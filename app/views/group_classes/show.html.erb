@@ -1,12 +1,10 @@
-<h1><%= @gc.name %> at <%= link_to @gc.studio.name, studio_path(@gc.studio) %></h1>
-<h3><%= @gc.duration %> minutes | <%= @gc.list_categories %>
-  <%= link_to "(Edit categories)", edit_group_class_path(@gc) if current_user %><br>
+<%= render 'group_class' %>
 
-<% if @gc.reviews.first %>
-  <%= @gc.average_rating %>/5 Average Rating | <%= pluralize(@gc.reviews.count, "Review") %></h3>
+<% if @group_class.reviews.first %>
+  <%= @group_class.average_rating %>/5 Average Rating | <%= pluralize(@group_class.reviews.count, "Review") %><br></br>
 
   <h4>Users said:</h4>
-  <% @gc.reviews.each do |review| %>
+  <% @group_class.reviews.each do |review| %>
     <%= review.rating %>/5 "<%= review.content %>" <br>
     - <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
   <% end %>

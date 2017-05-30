@@ -8,10 +8,10 @@ class GroupClassesController < ApplicationController
   end
 
   def update
-    @gc.update(group_class_params)
-    if @gc.save
+    @group_class.update(group_class_params)
+    if @group_class.save
       flash[:notice] = "Successfully updated class."
-      redirect_to studio_group_class_path(@gc.studio, @gc)
+      redirect_to studio_group_class_path(@group_class.studio, @group_class)
     else
       render :edit
     end
@@ -20,7 +20,7 @@ class GroupClassesController < ApplicationController
   private
 
   def set_group_class
-    @gc = GroupClass.find(params[:id])
+    @group_class = GroupClass.find(params[:id])
   end
 
   def group_class_params
