@@ -1,9 +1,9 @@
 <% if current_user %>
-<%= link_to "Move", root_path %>
-<%= link_to "Your Profile", user_path(current_user) %>
-<%= link_to "Leave a Review", new_review_path if current_studio%>
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
+  <%= link_to "Move", root_path %>
+  <%= link_to "Your Profile", user_path(current_user) %>
+  <%= link_to "Leave a Review", new_review_path if current_studio%>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
 <% else %>
-    <h4><%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to leave a review </h4>
+  <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to leave a review!
 <% end %>
 <%= link_to "Change City", cities_path if current_city %>

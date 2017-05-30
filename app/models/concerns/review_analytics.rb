@@ -5,6 +5,7 @@ module ReviewAnalytics
 
   def average_rating
     sum = reviews.map{|r| r.rating}.reduce(:+)
-    sum/self.review_count.to_f
+    avg = sum/self.review_count.to_f
+    avg.round(2)
   end
 end

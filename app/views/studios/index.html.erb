@@ -8,4 +8,9 @@
   </div><br></br>
 <% end %>
 
-Don't see the studio you're looking for? Add a studio <%= link_to "here", new_studio_path %>.
+Don't see the studio you're looking for?
+<% if current_user %>
+  Add a studio <%= link_to "here", new_studio_path %>.
+<% else %>
+  <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to add a studio.
+<% end %>
