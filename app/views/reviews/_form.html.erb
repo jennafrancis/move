@@ -1,4 +1,26 @@
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h3>
+
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @review do |f| %>
+  <%= f.label "Choose a class" %>
+  <%= f.collection_select :group_class_id, @classes, :id, :name, prompt: :true %><br></br>
+  <%= f.label "Or add a new one:" %><br>
+  <%= f.fields_for :group_class_attributes do |group_class_fields| %>
+    <%= group_class_fields.label :name %>
+    <%= group_class_fields.text_field :name %><br>
+    <%= group_class_fields.label :duration %>
+    <%= group_class_fields.number_field :duration %><br></br>
+    <%= group_class_fields.hidden_field :studio_id, value: session[:studio_id] %>
+  <% end %>
   <%= f.label "Rate this class (1-5)" %>
   <%= f.number_field :rating, in: 1...6 %><br>
   <%= f.label "What did you think?" %>
