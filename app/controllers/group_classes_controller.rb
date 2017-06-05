@@ -1,5 +1,5 @@
 class GroupClassesController < ApplicationController
-  before_action :set_group_class, except: :new
+  before_action :set_group_class, except: [:new, :create]
 
   def new
     @group_class = GroupClass.new
