@@ -2,6 +2,7 @@ class GroupClassesController < ApplicationController
   before_action :set_group_class
 
   def show
+    @reviews = @gc.reviews
   end
 
   def edit

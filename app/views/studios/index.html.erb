@@ -1,12 +1,8 @@
 <h1>Studios in <%= current_city.name %></h1>
 
 <% @studios.each do |studio| %>
-  <div><h3><%= link_to studio.name, studio_path(studio) %> - <%= studio.street_address %></h3>
-    <% if studio.group_classes.first %>
-      Classes include: <%= studio.group_classes.map{|gc| gc.name}.join(", ") %>
-      <% else %>
-      This studio doesn't have any classes yet!
-    <% end %>
+  <div><h3><%= studio.name %> - <%= studio.street_address %></h3>
+    <%= link_to "View class offerings", studio_path(studio) %>
   </div><br></br>
 <% end %>
 
