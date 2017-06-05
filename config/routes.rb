@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   resources :studios, only: [:index, :new, :create, :show] do
-    resources :group_classes, only: [:show]
+    resources :group_classes, only: [:show, :new, :create, :edit, :update]
   end
-  resources :group_classes, only: [:show, :edit, :update]
-  
+  resources :group_classes, only: [:create, :edit, :update]
+
   resources :reviews, only: [:new, :create, :show, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

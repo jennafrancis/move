@@ -1,5 +1,20 @@
 class GroupClassesController < ApplicationController
-  before_action :set_group_class
+  before_action :set_group_class, except: :new
+
+  def new
+    @group_class = GroupClass.new
+  end
+
+  def create
+    @group_class = GroupClass.new(group_class_params)
+    @group_class.studio = current_studio
+    if @group_class.save
+      flash[:notice] = "Successfully updated class."
+      redirect_to studio_group_class_path(current_studio, @group_class)
+    else
+      render :new
+    end
+  end
 
   def show
     @reviews = @gc.reviews
