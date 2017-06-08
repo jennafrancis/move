@@ -2,7 +2,8 @@
 
 <% @studios.each do |studio| %>
   <div><h3><%= studio.name %> - <%= studio.street_address %></h3>
-    <%= link_to "View class offerings", studio_path(studio) %>
+    Group Classes: <%= studio.class_list %><br>
+    <%= link_to "View reviews", studio_path(studio) %>
   </div><br></br>
 <% end %>
 
