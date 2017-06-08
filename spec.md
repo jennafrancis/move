@@ -26,7 +26,8 @@ Specs:
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
   Devise, OmniAuth Facebook
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients)
+  /studios/:id/group_classes/new
   Can add Review through GroupClass show view
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
   ActiveRecord validations raise errors when inputs are invalid
