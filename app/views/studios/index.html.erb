@@ -1,9 +1,8 @@
 <h1>Studios in <%= current_city.name %></h1>
 
 <% @studios.each do |studio| %>
-  <div><h3><%= studio.name %> - <%= studio.street_address %></h3>
+  <div><h3><%= link_to studio.name, studio_path(studio) %> - <%= studio.street_address %></h3>
     Group Classes: <%= studio.class_list %><br>
-    <%= link_to "View reviews", studio_path(studio) %>
   </div><br></br>
 <% end %>
 
