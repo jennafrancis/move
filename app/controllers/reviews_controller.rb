@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
       render :new
     else
       if @review.save
-        redirect_to group_class_path(@review.group_class)
+        redirect_to studio_group_class_path(current_studio, @review.group_class)
       else
         render :new
       end
@@ -30,8 +30,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     review = Review.find(params[:id])
+    gc = review.group_class
     review.destroy
-    redirect_to "cities/#{current_city}"
+    redirect_to studio_group_class_path(current_studio, gc)
   end
 
   private
