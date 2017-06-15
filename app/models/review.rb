@@ -15,4 +15,8 @@ class Review < ApplicationRecord
   def self.best_review
     order(rating: :DESC).first
   end
+
+  def studio
+    group_class.studio.name
+  end
 end

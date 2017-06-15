@@ -1,0 +1,14 @@
+<h1><%= @category.name %></h1>
+
+<% if @category.group_classes.first %>
+  <% @category.group_classes.each do |gc| %>
+    <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
+    <% if gc.reviews.first %>
+      <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
+    <% else %>
+      There are no reviews yet!
+    <% end %>
+  <% end %>
+<% else %>
+   There are no classes for <%= @category.name %> yet!
+<% end %>
