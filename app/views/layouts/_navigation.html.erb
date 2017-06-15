@@ -1,7 +1,6 @@
 <%= link_to "Home", root_path %>
 <% if current_user %>
   <%= link_to "Your Profile", user_path(current_user) %>
-  <%= link_to "Leave a Review", new_review_path if current_studio%>
   <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
 <% else %>
   <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to leave a review!
