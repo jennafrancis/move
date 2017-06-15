@@ -11,8 +11,7 @@
     <h4><%= link_to gc.name, studio_group_class_path(@studio, gc) %> | <%= gc.duration %> minutes</h4>
     <%= gc.list_categories %> |
     <%= gc.average_rating %>/5 Average | <%= pluralize(gc.reviews.count, "Review") %><br></br>
-    <%= gc.reviews.best_review.rating %>/5 "<%= gc.reviews.best_review.content %>" <br>
-    - <%= gc.reviews.best_review.user.email %><br></br>
+    <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
   <% end %>
 <% else %>
     This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!

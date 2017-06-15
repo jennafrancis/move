@@ -14,4 +14,8 @@ class GroupClass < ApplicationRecord
   def list_categories
     categories.map{|cat| cat.name}.join(", ")
   end
+
+  def best_review
+    reviews.best_review
+  end
 end
