@@ -1,2 +1,2 @@
 <%= review.rating %>/5 "<%= review.content %>" <br>
-- <%= review.user.email %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+- <%= link_to review.user.email, user_path(review.user) %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
