@@ -8,10 +8,12 @@
 
 <% if @studio.group_classes.first %>
   <% @studio.group_classes.each do |gc| %>
-    <h4><%= link_to gc.name, studio_group_class_path(@studio, gc) %> | <%= gc.duration %> minutes</h4>
-    <%= gc.list_categories %> |
-    <%= gc.average_rating %>/5 Average | <%= pluralize(gc.reviews.count, "Review") %><br></br>
-    <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
+    <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
+    <% if gc.reviews.first %>
+      <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
+    <% else %>
+      There are no reviews yet!
+    <% end %>
   <% end %>
 <% else %>
     This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!

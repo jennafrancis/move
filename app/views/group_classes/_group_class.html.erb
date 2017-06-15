@@ -1,0 +1,7 @@
+<h1><%= link_to gc.name, studio_group_class_path(gc.studio, gc) %></h1>
+<h3><%= gc.duration %> minutes | <%= gc.list_categories %>
+<%= link_to "(Edit categories)", edit_group_class_path(gc) if current_user %><br>
+
+<% if gc.reviews.first %>
+<%= gc.average_rating %>/5 Average Rating | <%= pluralize(gc.reviews.count, "Review") %></h3>
+<% end %>
