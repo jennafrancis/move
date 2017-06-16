@@ -3,11 +3,28 @@
 Specs:
 - [x] Use jQuery for implementing new requirements
 - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+
+    studio show page can click "next" for next class at that studio
+
 - [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+
+    index of user's reviews on user show page
+
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+
+    group_class show page click to reveal reviews
+
 - [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+
+    Either leave a review, add a studio, or add a class
+
 - [ ] Translate JSON responses into js model objects.
+
+    * should be taken care of by above requirements
+
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
+
+    ** not sure yet
 
 Confirm
 - [ ] You have a large number of small Git commits
