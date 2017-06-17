@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   post '/cities', to: 'cities#set_city'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :reviews, only: :index
+  end
 
   resources :studios, only: [:index, :new, :create, :show] do
     resources :group_classes, only: [:show, :new, :create, :edit, :update]

@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.where('user_id = ?', params[:user_id])
+  end
+
   def new
     @review = Review.new
     @classes = GroupClass.where('studio_id = ?', current_studio)
@@ -22,10 +26,6 @@ class ReviewsController < ApplicationController
         render :new
       end
     end
-  end
-
-  def show
-    @review = Review.find(params[:id])
   end
 
   def destroy
