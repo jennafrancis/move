@@ -1,5 +1,5 @@
 <% @reviews.each do |review| %>
-<%= review.group_class.name %> at <%= review.studio %><br>
+<strong><%= review.group_class.name %> at <%= review.studio %><br></strong>
 <%= review.rating %>/5 "<%= review.content %>" <br>
-- <%= link_to review.user.email, user_path(review.user) %> <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+<%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
 <% end %>

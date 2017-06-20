@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @reviews = @user.reviews
+
+    render 'reviews/index', :layout => false
   end
 
   def new
