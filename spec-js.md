@@ -6,9 +6,10 @@ Specs:
 
     studio show page can click "next" for next class at that studio
 
-- [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 
     index of user's reviews on user show page
+    ** go back and add review details through json associations
 
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 
