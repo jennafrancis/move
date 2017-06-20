@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
     @user = User.find(params[:user_id])
     @reviews = @user.reviews
 
-    render 'reviews/index', :layout => false
+    # render :layout => false
+    render :json => @reviews
   end
 
   def new
