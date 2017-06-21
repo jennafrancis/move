@@ -36,10 +36,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save
-      flash[:alert] = "Created from ajax method"
       redirect_to studio_group_class_path(current_studio, @review.group_class)
     else
-      render "group_class/show"
+      render 'group_classes/show'
     end
   end
 
