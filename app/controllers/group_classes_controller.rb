@@ -18,6 +18,7 @@ class GroupClassesController < ApplicationController
 
   def show
     @reviews = @gc.reviews
+    @review = Review.new
   end
 
   def edit
