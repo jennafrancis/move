@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :group_classes, only: [:create, :edit, :update]
 
   resources :reviews, only: [:new, :create, :show, :update, :destroy]
+  post '/studios/:studio_id/group_classes/:id', to: 'reviews#create_from_ajax'
 
   resources :categories, only: [:index, :show]
 

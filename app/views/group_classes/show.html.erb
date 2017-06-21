@@ -9,7 +9,7 @@
 
 <% if current_user %>
   <strong>Add a review:</strong>
-  <%= form_for(@review) do |f| %>
+  <%= form_for(@review, :url => studio_group_class_path(@gc.studio, @gc)) do |f| %>
     <%= f.label "Rate this class (1-5)" %>
     <%= f.number_field :rating, in: 1...6 %><br>
     <%= f.label "What did you think?" %>
