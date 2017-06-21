@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save
-      redirect_to studio_group_class_path(current_studio, @review.group_class)
+      render 'reviews/show', :layout => false
     else
       render 'group_classes/show'
     end

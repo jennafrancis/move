@@ -3,7 +3,10 @@
 <%= render partial: 'group_class', locals: {gc: @gc} %>
 
 <h4>Users said:</h4>
-<%= render(@reviews) || "There are no reviews yet!" %>
+<div class="gc_reviews">
+  <%= render(@reviews) || "There are no reviews yet!" %>
+</div>
+
 
 <%#= link_to "Leave a review", new_review_path if current_user %>
 
@@ -15,11 +18,7 @@
     <%= f.label "What did you think?" %>
     <%= f.text_area :content %><br>
     <%= f.hidden_field :group_class_id, :value => @gc.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit %><br>
   <% end %>
-  <!-- <form class="" action="index.html" method="post">
-    <textarea name="content"></textarea><br>
-    Rating: <input id="quantity" name="rating" min="1" max="5" type="number" /><br>
-    <input type="submit">
-  </form> -->
 <% end %>
