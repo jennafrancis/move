@@ -17,7 +17,7 @@ Specs:
 
 - [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
 
-    Either leave a review, add a studio, or add a class
+    Leave a review from group_class show page
 
 - [ ] Translate JSON responses into js model objects.
 

@@ -5,4 +5,13 @@
 <h4>Users said:</h4>
 <%= render(@reviews) || "There are no reviews yet!" %>
 
-<%= link_to "Leave a review", new_review_path if current_user %>
+<%#= link_to "Leave a review", new_review_path if current_user %>
+
+<% if current_user %>
+Add a review:
+  <form class="" action="index.html" method="post">
+    <textarea name="content"></textarea><br>
+    Rating: <input id="quantity" name="rating" min="1" max="5" type="number" />
+    <input type="submit">
+  </form>
+<% end %>
