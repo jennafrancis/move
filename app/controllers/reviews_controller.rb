@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save
-      render 'reviews/show', :layout => false
+      render json: @review, status: 201
     else
       render 'group_classes/show'
     end

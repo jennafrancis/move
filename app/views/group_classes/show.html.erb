@@ -3,8 +3,13 @@
 <%= render partial: 'group_class', locals: {gc: @gc} %>
 
 <h4>Users said:</h4>
-<div class="gc_reviews">
+<!-- <div class="gc_reviews"> -->
   <%= render(@reviews) || "There are no reviews yet!" %>
+<!-- </div> -->
+
+<div class="reviewResult">
+  <span id="reviewRating"></span>/5 "<span id="reviewContent"></span>" <br>
+  - <span id="reviewUser"></span> <%#= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
 </div>
 
 
