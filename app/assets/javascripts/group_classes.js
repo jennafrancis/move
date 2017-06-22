@@ -1,15 +1,16 @@
 $(function(){
   $("#new_review").on('submit', function(e) {
-    var url = this.action
-    var data = $(this).serialize()
-    var $destination = $("div.gc_reviews")
+    e.preventDefault();
 
-    $.post(url, data, function(response){
+    var url = this.action;
+    var data = $(this).serialize();
+    var posting = $.post(url, data);
+    var $destination = $("div.gc_reviews");
+
+    posting.done(function(response){
       $("#review_content").val("")
       $("#review_rating").val("")
       $destination.append(response);
-    })
-
-    e.preventDefault();
+    });
   });
 });
