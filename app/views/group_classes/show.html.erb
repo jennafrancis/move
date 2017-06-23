@@ -24,6 +24,7 @@
     <%= f.text_area :content %><br>
     <%= f.hidden_field :group_class_id, :value => @gc.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%#= f.hidden_field :user_email, :value => current_user.email %>
     <%= f.submit %><br>
   <% end %>
 <% end %>

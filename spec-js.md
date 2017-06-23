@@ -13,7 +13,7 @@ Specs:
 
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 
-    group_class show page click to reveal reviews??
+    group_class show page click to reveal reviews
 
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
 
