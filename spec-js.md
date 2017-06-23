@@ -4,7 +4,7 @@ Specs:
 - [x] Use jQuery for implementing new requirements
 - [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 
-    studio show page can click "next" for next class at that studio
+    group_class show page can click "next" for next class at that studio
 
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 
@@ -18,7 +18,6 @@ Specs:
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
 
     Leave a review from group_class show page
-    ** submit button bug
 
 - [ ] Translate JSON responses into js model objects.
 

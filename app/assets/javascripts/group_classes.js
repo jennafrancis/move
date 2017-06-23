@@ -15,6 +15,8 @@
 //   });
 // });
 
+
+// add handlebars template
 $(function(){
   $("#new_review").submit(function(e) {
     e.preventDefault();

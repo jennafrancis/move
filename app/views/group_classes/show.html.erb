@@ -7,13 +7,13 @@
   <%= render(@reviews) || "There are no reviews yet!" %>
 </div>
 
+
+<!-- handlebars template for this  -->
 <!-- <div class="reviewResult">
   <span id="reviewRating"></span>/5 "<span id="reviewContent"></span>" <br>
   - <span id="reviewUser"></span> <%#= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
 </div> -->
 
-
-<%#= link_to "Leave a review", new_review_path if current_user %>
 
 <% if current_user %>
   <strong>Add a review:</strong>
