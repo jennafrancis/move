@@ -9,15 +9,15 @@ Specs:
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 
     index of user's reviews on user show page
-    ** go back and add review details through json associations
 
-- [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+- [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 
-    group_class show page click to reveal reviews
+    group_class has_many reviews
 
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
 
     Leave a review from group_class show page
+    ** handlebars template for formatting
 
 - [ ] Translate JSON responses into js model objects.
 

@@ -1,5 +1,5 @@
 class GroupClassesController < ApplicationController
-  before_action :set_group_class, except: [:new, :create]
+  before_action :set_group_class, except: [:new, :create, :show]
 
   def new
     @group_class = GroupClass.new
@@ -17,8 +17,10 @@ class GroupClassesController < ApplicationController
   end
 
   def show
-    @reviews = @gc.reviews
+    # @reviews = @gc.reviews
+    @group_class = GroupClass.find(params[:id])
     @review = Review.new
+    render :json => @group_class
   end
 
   def edit

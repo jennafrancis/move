@@ -6,9 +6,7 @@ $(function(){
       $list.html("")
 
       json.forEach(function(review){
-        // want this one to work
-        // $list.append(review.group_class.name + ' at ' + review.group_class.studio.name + '<br>' + review.rating + '/5 "' + review.content + '"<br></br>')
-        $list.append(review.group_class.name + '<br>' + review.rating + '/5 "' + review.content + '"<br></br>')
+        $list.append(review.group_class.name + ' at ' + review.group_class.studio.name + '<br>' + review.rating + '/5 "' + review.content + '"<br></br>')
       });
     });
 
