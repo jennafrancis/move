@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
     @user = User.find(params[:user_id])
     @reviews = @user.reviews
 
-    # render :layout => false
     render :json => @reviews
   end
 
@@ -13,7 +12,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @classes = GroupClass.where('studio_id = ?', current_studio)
     @review = Review.new(review_params)
     @review.user = current_user

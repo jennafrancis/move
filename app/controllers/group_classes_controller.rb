@@ -17,9 +17,8 @@ class GroupClassesController < ApplicationController
   end
 
   def show
-    # @reviews = @gc.reviews
     @group_class = GroupClass.find(params[:id])
-    @review = Review.new
+    # @review = Review.new --> here to render form_for @review. to be changed.
     render :json => @group_class
   end
 

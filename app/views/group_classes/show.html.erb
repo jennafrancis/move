@@ -7,14 +7,6 @@
   <%= render(@reviews) || "There are no reviews yet!" %>
 </div>
 
-
-<!-- handlebars template for this  -->
-<!-- <div class="reviewResult">
-  <span id="reviewRating"></span>/5 "<span id="reviewContent"></span>" <br>
-  - <span id="reviewUser"></span> <%#= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
-</div> -->
-
-
 <% if current_user %>
   <strong>Add a review:</strong>
   <%= form_for(@review, :url => studio_group_class_path(@gc.studio, @gc)) do |f| %>
@@ -24,7 +16,6 @@
     <%= f.text_area :content %><br>
     <%= f.hidden_field :group_class_id, :value => @gc.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%#= f.hidden_field :user_email, :value => current_user.email %>
     <%= f.submit %><br>
   <% end %>
 <% end %>
