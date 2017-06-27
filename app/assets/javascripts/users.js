@@ -1,5 +1,5 @@
 $(function(){
-  $("a.load_reviews").on('click', function(e) {
+  $("a.load_reviews").click(function(e) {
 
     $.get(this.href).done(function(json){
       var $list = $("div.reviews")
