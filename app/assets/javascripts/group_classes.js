@@ -12,10 +12,9 @@ $(function() {
       var result = template(response)
       var $destination = $("#main")
       $destination.empty()
-      
       $destination.append(result)
 
-      console.log(response)
+      // console.log(response)
     });
     e.preventDefault()
   });
