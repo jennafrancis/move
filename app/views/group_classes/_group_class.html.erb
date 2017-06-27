@@ -1,4 +1,4 @@
-<h1><%= link_to gc.name, studio_group_class_path(gc.studio, gc) %></h1>
+<h1 class="js-show" data-id="<%= gc.id %>" data-studio="<%= gc.studio_id %>"><%= link_to gc.name, studio_group_class_path(gc.studio, gc) %></h1>
 <h3><%= gc.duration %> minutes | <%= gc.list_categories %>
 <%= link_to "(Edit categories)", edit_group_class_path(gc) if current_user %><br>
 
