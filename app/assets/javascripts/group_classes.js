@@ -14,7 +14,7 @@ $(function() {
       $destination.empty()
       $destination.append(result)
 
-      // console.log(response)
+      console.log(response)
     });
     e.preventDefault()
   });

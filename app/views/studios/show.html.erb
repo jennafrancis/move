@@ -25,13 +25,16 @@
     <article>
       <h1>{{name}}</h3>
       <h4>{{duration}} minutes</h4>
-      <!-- figure out how to get categories, analytics in there -->
-      {{#each review}}
-        <p>{{rating}}/5 "{{content}}"<br>
-        - <a href={{user.id}}>{{user.email}}</a>
-        <!-- watch avi's video on proper templating of below action -->
-      <!-- <form class="button_to" method="post" action="/reviews/27"><input type="hidden" name="_method" value="delete" /><input data-confirm="Are you sure?" type="submit" value="Delete" /><input type="hidden" name="authenticity_token" value="veIXmFJSsYjdcwRUWlVU7XrDoOH8/jfg+92BxTJLnZbKXp33+m7GtqWZBy1unVYJjkGOU0hURBuH9ApYyRB0hQ==" /></form><br></br></p> -->
-      {{/each}}
+      {{#if reviews.length}}
+        {{#each reviews}}
+          <p>{{rating}}/5 "{{content}}"<br>
+          - <a href={{user.id}}>{{user.email}}</a>
+          <!-- watch avi's video on proper templating of below action -->
+        <!-- <form class="button_to" method="post" action="/reviews/27"><input type="hidden" name="_method" value="delete" /><input data-confirm="Are you sure?" type="submit" value="Delete" /><input type="hidden" name="authenticity_token" value="veIXmFJSsYjdcwRUWlVU7XrDoOH8/jfg+92BxTJLnZbKXp33+m7GtqWZBy1unVYJjkGOU0hURBuH9ApYyRB0hQ==" /></form><br></br></p> -->
+        {{/each}}
+      {{else}}
+        <p>There are no reviews yet!</p>
+      {{/if}}
     </article>
   </script>
 </div>
