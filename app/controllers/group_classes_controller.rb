@@ -9,8 +9,7 @@ class GroupClassesController < ApplicationController
     @group_class = GroupClass.new(group_class_params)
     @group_class.studio = current_studio
     if @group_class.save
-      flash[:notice] = "Successfully updated class."
-      redirect_to studio_group_class_path(current_studio, @group_class)
+      render json: @group_class
     else
       render :new
     end
@@ -21,7 +20,12 @@ class GroupClassesController < ApplicationController
     # @review = Review.new
     # @reviews = @gc.reviews
 
-    @group_class = GroupClass.find(params[:id])
+    @studio = Studio.find(params[:studio_id])
+    # binding.pry
+    @group_class = @studio.group_classes.find_by_id(params[:id])
+    if !@group_class
+      @group_class = @studio.group_classes.first
+    end
     render :json => @group_class
   end
 

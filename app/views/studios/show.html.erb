@@ -5,22 +5,41 @@
 
 <div id="main">
   <% if current_user %>
-    <%= link_to "Leave a review", new_review_path %> | <%= link_to "Add a class", new_studio_group_class_path(@studio) %><br>
+    <%= link_to "Leave a review", new_review_path %><br>
   <% end %>
 
-  <% if @studio.group_classes.first %>
-    <% @studio.group_classes.each do |gc| %>
-      <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
-      <% if gc.reviews.first %>
-        <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
-      <% else %>
-        There are no reviews yet!
+  <div id="group_class_list">
+    <% if @studio.group_classes.first %>
+      <% @studio.group_classes.each do |gc| %>
+        <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
+        <% if gc.reviews.first %>
+          <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
+        <% else %>
+          There are no reviews yet!
+        <% end %>
       <% end %>
+    <% else %>
+        This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!
     <% end %>
-  <% else %>
-      This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!
+  </div>
+
+  <% if current_user %>
+    Don't see the class you were looking for? Add it!
+    <%= form_for(@group_class) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :duration %>
+      <%= f.text_field :duration %>
+      <%= f.submit %>
+    <% end %>
   <% end %>
 </div>
+
+<script id="new-gc-template" type="text/x-handlebars-template">
+  <h1 class="js-show" data-id="{{id}}" data-studio="<%= @studio.id %>"><a href="/studios/<%= @studio.id %>/group_classes/{{id}}">{{name}}</a></h1>
+  <h3>{{duration}} | <a href="/group_classes/{{id}}/edit">(Edit categories)</a></h3>
+  There are no reviews yet!
+</script>
 
 <script id="gc-show-template" type="text/x-handlebars-template">
   <article>
@@ -31,16 +50,9 @@
       {{#each reviews}}
         <p>{{rating}}/5 "{{content}}"<br>
         - <a href={{user.id}}>{{user.email}}</a>
-        <!-- watch avi's video on proper templating of below action -->
-      <!-- <form class="button_to" method="post" action="/reviews/27"><input type="hidden" name="_method" value="delete" /><input data-confirm="Are you sure?" type="submit" value="Delete" /><input type="hidden" name="authenticity_token" value="veIXmFJSsYjdcwRUWlVU7XrDoOH8/jfg+92BxTJLnZbKXp33+m7GtqWZBy1unVYJjkGOU0hURBuH9ApYyRB0hQ==" /></form><br></br></p> -->
       {{/each}}
     {{else}}
       <p>There are no reviews yet!</p>
     {{/if}}
-  </article>
-</script>
-
-<script id="new-review-form-template" type="text/x-handlebars-template">
-  <article>
   </article>
 </script>
