@@ -4,8 +4,13 @@ function GroupClass(attributes) {
   this.duration = attributes.duration
 }
 
-GroupClass.prototype.format = function() {
+$(function(){
+  GroupClass.templateSource = $("#new-gc-template").html()
+  GroupClass.template = Handlebars.compile(GroupClass.templateSource);
+})
 
+GroupClass.prototype.format = function() {
+ return GroupClass.template(this)
 }
 
 $(function() {
@@ -32,8 +37,8 @@ $(function() {
 $(function() {
   $(".js-show").click(function(e) {
     var id = $(this).data("id");
-    var studio_id = $(this).data("studio")
-    var url = "/studios/" + studio_id + "/group_classes/" + id
+    var studioId = $(this).data("studio")
+    var url = "/studios/" + studioId + "/group_classes/" + id
 
     var source = document.getElementById("gc-show-template").innerHTML
     var template = Handlebars.compile(source);
@@ -44,21 +49,17 @@ $(function() {
       $destination.empty()
       $destination.append(result)
 
-      attachNext()
-      console.log(response)
+      attachNext(studioId, template)
     });
     e.preventDefault()
   });
 });
 
-function attachNext() {
+function attachNext(studioId, template) {
   $(".js-next").click(function(e) {
-    e.preventDefault();
-    var studio_id = $(this).data("studio")
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-
-    var url = "/studios/" + studio_id + "/group_classes/" + nextId
-    console.log(url)
+    var studioId = $(this).data("studio")
+    var url = "/studios/" + studioId + "/group_classes/" + nextId
 
     var source = document.getElementById("gc-show-template").innerHTML
     var template = Handlebars.compile(source);
@@ -72,5 +73,6 @@ function attachNext() {
       $(".js-next").attr("data-id", response["id"]);
       attachNext()
     });
+    e.preventDefault();
   });
 };

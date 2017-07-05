@@ -18,4 +18,15 @@ class GroupClass < ApplicationRecord
   def best_review
     reviews.best_review
   end
+
+  def next(studio, id)
+    studio = Studio.find(studio)
+    studio.group_classes.map{|gc| gc.id}
+    binding.pry
+
+    @group_class = studio.group_classes.find_by_id(id)
+    if !@group_class
+      @group_class = studio.group_classes.first
+    end
+  end
 end

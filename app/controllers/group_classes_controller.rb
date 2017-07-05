@@ -21,11 +21,11 @@ class GroupClassesController < ApplicationController
     # @reviews = @gc.reviews
 
     @studio = Studio.find(params[:studio_id])
-    # binding.pry
     @group_class = @studio.group_classes.find_by_id(params[:id])
     if !@group_class
       @group_class = @studio.group_classes.first
     end
+    # @group_class = group_class.next(params[:studio_id], params[:id])
     render :json => @group_class
   end
 
