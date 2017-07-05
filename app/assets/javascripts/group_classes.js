@@ -49,13 +49,13 @@ $(function() {
       $destination.empty()
       $destination.append(result)
 
-      attachNext(studioId, template)
+      attachNext()
     });
     e.preventDefault()
   });
 });
 
-function attachNext(studioId, template) {
+function attachNext() {
   $(".js-next").click(function(e) {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     var studioId = $(this).data("studio")
