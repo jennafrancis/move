@@ -19,5 +19,13 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
+  resources :static, only: [:index]
+
+  get '/about', to: 'static#about'
+  get '/contact', to: 'static#contact'
+  get '/portfolio', to: 'static#portfolio'
+  get '/pricing', to: 'static#pricing'
+  get '/services', to: 'static#services'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
