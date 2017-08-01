@@ -1,58 +1,60 @@
-<div class="static">
-  <h1><%= link_to @studio.name, studio_path(@studio) %> - <%= link_to current_city.name, root_path %></h1>
-  <h2><%= @studio.street_address %></h2>
-</div>
+<div class='custom'>
+  <div class="static">
+    <h1><%= link_to @studio.name, studio_path(@studio) %> - <%= link_to current_city.name, root_path %></h1>
+    <h2><%= @studio.street_address %></h2>
+  </div>
 
-<div id="main">
-  <% if current_user %>
-    <%= link_to "Leave a review", new_review_path %><br>
-  <% end %>
+  <div id="main">
+    <% if current_user %>
+      <%= link_to "Leave a review", new_review_path %><br>
+    <% end %>
 
-  <div id="group_class_list">
-    <% if @studio.group_classes.first %>
-      <% @studio.group_classes.each do |gc| %>
-        <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
-        <% if gc.reviews.first %>
-          <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
-        <% else %>
-          There are no reviews yet!
+    <div id="group_class_list">
+      <% if @studio.group_classes.first %>
+        <% @studio.group_classes.each do |gc| %>
+          <%= render partial: "group_classes/group_class", locals: {gc: gc} %>
+          <% if gc.reviews.first %>
+            <%= render partial: "reviews/review", locals: {review: gc.best_review} %>
+          <% else %>
+            There are no reviews yet!
+          <% end %>
         <% end %>
+      <% else %>
+          This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!
       <% end %>
-    <% else %>
-        This studio doesn't have any classes listed yet. Be the first to add a class and leave a review!
+    </div>
+
+    <% if current_user %>
+      Don't see the class you were looking for? Add it!
+      <%= form_for(@group_class) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.label :duration %>
+        <%= f.text_field :duration %>
+        <%= f.submit %>
+      <% end %>
     <% end %>
   </div>
 
-  <% if current_user %>
-    Don't see the class you were looking for? Add it!
-    <%= form_for(@group_class) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <%= f.label :duration %>
-      <%= f.text_field :duration %>
-      <%= f.submit %>
-    <% end %>
-  <% end %>
+  <script id="new-gc-template" type="text/x-handlebars-template">
+    <h1 class="js-show" data-id="{{id}}" data-studio="<%= @studio.id %>"><a href="/studios/<%= @studio.id %>/group_classes/{{id}}">{{name}}</a></h1>
+    <h3>{{duration}} minutes | <a href="/group_classes/{{id}}/edit">(Edit categories)</a><br>
+    There are no reviews yet!</h3>
+  </script>
+
+  <script id="gc-show-template" type="text/x-handlebars-template">
+    <article>
+      <h1>{{name}}</h3>
+      <h4>{{duration}} minutes</h4>
+      <a href="#" class="js-next" data-studio="{{studio.id}}" data-id="{{id}}">Next Group Class</a>
+      {{#if reviews.length}}
+        {{#each reviews}}
+          <p>{{rating}}/5 "{{content}}"<br>
+          - <a href={{user.id}}>{{user.email}}</a>
+        {{/each}}
+      {{else}}
+        <p>There are no reviews yet!</p>
+      {{/if}}
+    </article>
+  </script>
 </div>
-
-<script id="new-gc-template" type="text/x-handlebars-template">
-  <h1 class="js-show" data-id="{{id}}" data-studio="<%= @studio.id %>"><a href="/studios/<%= @studio.id %>/group_classes/{{id}}">{{name}}</a></h1>
-  <h3>{{duration}} minutes | <a href="/group_classes/{{id}}/edit">(Edit categories)</a><br>
-  There are no reviews yet!</h3>
-</script>
-
-<script id="gc-show-template" type="text/x-handlebars-template">
-  <article>
-    <h1>{{name}}</h3>
-    <h4>{{duration}} minutes</h4>
-    <a href="#" class="js-next" data-studio="{{studio.id}}" data-id="{{id}}">Next Group Class</a>
-    {{#if reviews.length}}
-      {{#each reviews}}
-        <p>{{rating}}/5 "{{content}}"<br>
-        - <a href={{user.id}}>{{user.email}}</a>
-      {{/each}}
-    {{else}}
-      <p>There are no reviews yet!</p>
-    {{/if}}
-  </article>
-</script>
