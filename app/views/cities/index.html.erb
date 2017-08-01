@@ -1,6 +1,89 @@
-<h1>Where are you in the world?</h1>
+<section id="banner">
+<!-- Slider -->
+      <div id="main-slider" class="flexslider">
+          <ul class="slides">
+            <li>
+              <%= image_tag("s2.jpg", :alt => "slider 1")  %>
+              <div class="flex-caption">
+                <h3><i>Get moving</i></h3>
+              </div>
+            </li>
+            <li>
+              <%= image_tag("s1.jpg", :alt => "slider 1")  %>
+              <div class="flex-caption">
+                <h3><i>The time is now</i></h3>
+              </div>
+            </li>
+          </ul>
+      </div>
+<!-- end slider -->
+</section>
 
-<%= form_tag('/cities') do %>
-  <%= collection_select(:studios, :city_id, City.all, :id, :name, prompt: true) %>
-  <%= submit_tag "Get Fit!"%>
-<% end %>
+<section class="dishes">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <div class="aligncenter"><h2 class="aligncenter">Where do you move?</h2>Select your city to find fitness classes in your metro area. Offerings include Crossfit, Cycling, Yoga, and more!</div>
+    <br/>
+  </div>
+</div>
+
+<div class="row service-v1 margin-bottom-40">
+        <div class="col-md-4 md-margin-bottom-40">
+      <div class="card small">
+                    <div class="card-image">
+                        <%= image_tag("LABW", :alt => "Los Angeles", class: "img-responsive")  %>
+                        <span class="card-title"><%= link_to "Los Angeles", city_path(3) %></span>
+                    </div>
+                    <!-- <div class="card-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                    </div> -->
+                </div>
+        </div>
+     <div class="col-md-4 md-margin-bottom-40">
+      <div class="card small">
+                    <div class="card-image">
+                      <%= image_tag("NYBW", :alt => "New-York", class: "img-responsive")  %>
+                        <span class="card-title"><%= link_to "New York", city_path(1) %></span>
+                    </div>
+                    <!-- <div class="card-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                    </div> -->
+                </div>
+        </div>
+     <div class="col-md-4 md-margin-bottom-40">
+      <div class="card small">
+                    <div class="card-image">
+                        <%= image_tag("SFBW", :alt => "San-Francisco", class: "img-responsive")  %>
+                        <span class="card-title"><%= link_to "San Francisco", city_path(2) %></span>
+                    </div>
+                    <!-- <div class="card-content">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt
+                        </p>
+                    </div> -->
+                </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- <h1>Where are you in the world?</h1> -->
+
+<%#= form_tag('/cities') do %>
+  <%#= collection_select(:studios, :city_id, City.all, :id, :name, prompt: true) %>
+  <%#= submit_tag "Get Fit!"%>
+<%# end %>

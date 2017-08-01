@@ -1,56 +1,23 @@
-<h1><%= link_to @gc.studio.name, studio_path(@gc.studio) %></h1>
+<div class='custom'>
+  <h1><%= link_to @gc.studio.name, studio_path(@gc.studio) %></h1>
 
-<%= render partial: 'group_class', locals: {gc: @gc} %>
+  <%= render partial: 'group_class', locals: {gc: @gc} %>
 
-<h4>Users said:</h4>
-<div class="gc_reviews">
-  <%= render(@reviews) || "There are no reviews yet!" %>
-</div>
+  <h4>Users said:</h4>
+  <div class="gc_reviews">
+    <%= render(@reviews) || "There are no reviews yet!" %>
+  </div>
 
-<% if current_user %>
-  <strong>Add a review:</strong>
-  <%= form_for(@review, :url => studio_group_class_path(@gc.studio, @gc)) do |f| %>
-    <%= f.label "Rate this class (1-5)" %>
-    <%= f.number_field :rating, in: 1...6 %><br>
-    <%= f.label "What did you think?" %>
-    <%= f.text_area :content %><br>
-    <%= f.hidden_field :group_class_id, :value => @gc.id %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit %><br>
+  <% if current_user %>
+    <strong>Add a review:</strong>
+    <%= form_for(@review, :url => studio_group_class_path(@gc.studio, @gc)) do |f| %>
+      <%= f.label "Rate this class (1-5)" %>
+      <%= f.number_field :rating, in: 1...6 %><br>
+      <%= f.label "What did you think?" %>
+      <%= f.text_area :content %><br>
+      <%= f.hidden_field :group_class_id, :value => @gc.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit %><br>
+    <% end %>
   <% end %>
-<% end %>
-
-<!-- group_class : {
-  id : 3,
-  name : "Sunrise 30",
-  duration : 30,
-  studio : {
-    name : "Cyc"
-  },
-  reviews: [
-    { id : 4,
-    content : "this was okay",
-    rating : 3,
-    user : {
-      id : 1,
-      email : "test@test.com",
-      created_at : "2017-05-07T22:55:39.856Z",
-      updated_at : "2017-05-07T22:55:39.856Z",
-      provider : null,
-      uid : null
-      }
-    },
-    { id : 9,
-    content : "Perfect start to my day",
-    rating : 5,
-    user : {
-      id : 1,
-      email : "test@test.com",
-      created_at : "2017-05-07T22:55:39.856Z",
-      updated_at : "2017-05-07T22:55:39.856Z",
-      provider : null,
-      uid : null
-      }
-    }
-  ]
-} -->
+</div>
