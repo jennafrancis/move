@@ -10,9 +10,10 @@
 
   <body>
     <%= render 'layouts/navigation' %>
-    <br></br>
     <%= render 'layouts/messages' %>
-    <br>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
