@@ -1,22 +1,8 @@
-<header>
-      <div class="navbar navbar-default navbar-static-top">
-          <div class="container">
-              <div class="navbar-header">
-                  <a class="navbar-brand"><i class="icon-info-blocks material-icons">TIME TO</i>MOVE</a>
-              </div>
-              <div class="navbar-collapse collapse ">
-                  <ul class="nav navbar-nav">
-                      <li><%= link_to "Studios", studios_path, class: "waves-effect waves-dark" %></li>
-                      <% if current_user %>
-                        <li><%= link_to "Your Profile", user_path(current_user), class: "waves-effect waves-dark" %></li>
-                        <li><%= link_to "Sign Out", destroy_user_session_path, class: "waves-effect waves-dark", method: :delete  %></li>
-                      <% else %>
-                        <li><%= link_to "Log in", new_user_session_path, class: "waves-effect waves-dark" %></li>
-                        <li><%= link_to "Sign up", new_user_registration_path, class: "waves-effect waves-dark" %></li>
-                      <% end %>
-                      <li><%= link_to "Change City", cities_path, class: "waves-effect waves-dark" if current_city %></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-</header>
+<%= link_to "Home", root_path %>
+<% if current_user %>
+  <%= link_to "Your Profile", user_path(current_user) %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete  %>
+<% else %>
+  <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to leave a review!
+<% end %>
+<%= link_to "Change City", cities_path if current_city %>
