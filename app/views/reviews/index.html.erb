@@ -1,7 +1,5 @@
-<div class='custom'>
-  <% @reviews.each do |review| %>
-  <strong><%= review.group_class.name %> at <%= review.studio %><br></strong>
-  <%= review.rating %>/5 "<%= review.content %>" <br>
-  <%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
-  <% end %>
-</div>
+<% @reviews.each do |review| %>
+<strong><%= review.group_class.name %> at <%= review.studio %><br></strong>
+<%= review.rating %>/5 "<%= review.content %>" <br>
+<%= button_to "Delete", review_path(review), method: :delete, data: { confirm: 'Are you sure?' } if current_user == review.user %><br></br>
+<% end %>
