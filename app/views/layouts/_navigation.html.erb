@@ -6,13 +6,13 @@
               </div>
               <div class="navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li class="active"><%= link_to "Home", root_path, class: "waves-effect waves-dark" %></li>
+                      <li class="active"><%= link_to "Home", studios_path, class: "waves-effect waves-dark" %></li>
                       <% if current_user %>
                         <li><%= link_to "Your Profile", user_path(current_user), class: "waves-effect waves-dark" %></li>
                         <li><%= link_to "Sign Out", destroy_user_session_path, class: "waves-effect waves-dark", method: :delete  %></li>
                       <% else %>
                         <li><%= link_to "Log in", new_user_session_path, class: "waves-effect waves-dark" %></li>
-                        <li><%= link_to "sign up", new_user_registration_path, class: "waves-effect waves-dark" %> to leave a review!</li>
+                        <li><%= link_to "Sign up", new_user_registration_path, class: "waves-effect waves-dark" %></li>
                       <% end %>
                       <li><%= link_to "Change City", cities_path, class: "waves-effect waves-dark" if current_city %></li>
                   </ul>

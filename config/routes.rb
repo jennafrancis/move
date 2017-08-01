@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'studios#index'
+  root 'cities#index'
 
   resources :cities, only: :index
   post '/cities', to: 'cities#set_city'
