@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'cities#index'
 
-  resources :cities, only: :index
-  post '/cities', to: 'cities#set_city'
+  resources :cities, only: [:index, :show]
+  # post '/cities', to: 'cities#set_city'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users, only: :show do
@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
+#for bootstrap dev. remove later.
   resources :static, only: [:index]
-
   get '/about', to: 'static#about'
   get '/contact', to: 'static#contact'
   get '/portfolio', to: 'static#portfolio'
