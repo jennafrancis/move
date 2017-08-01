@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -14,6 +15,5 @@
     <div class="container">
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>
