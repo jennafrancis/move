@@ -29,7 +29,7 @@ class GroupClassesController < ApplicationController
     @gc.update(group_class_params)
     if @gc.save
       flash[:notice] = "Successfully updated class."
-      redirect_to studio_group_class_path(@gc.studio, @gc)
+      redirect_to studio_path(@gc.studio)
     else
       render :edit
     end
