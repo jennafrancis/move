@@ -5,15 +5,23 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link href="sticky-footer-navbar.css" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
+
+    <%= yield %>
+
+    <hr>
+
     <div class="container">
-      <%= yield %>
+      <footer>
+        <p>&copy; 2017 J. Francis</p>
+      </footer>
     </div>
+    
   </body>
 </html>

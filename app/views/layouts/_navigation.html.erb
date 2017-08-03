@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-static-top navbar-inverse">
       <div class="container">
         <div class="navbar-header">
           <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -17,7 +17,7 @@
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
             <% else %>
             <li><%= link_to "Log in", new_user_session_path %></li>
-            <li><%= link_to "sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <% end %>
             <% if current_user %>
             <li><%= link_to "Change City", cities_path if current_city %></li>
