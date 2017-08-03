@@ -1,21 +1,24 @@
-<h1>Add a class for <%= current_studio.name %></h1>
 
-<% if @group_class.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(@group_class.errors.count, "error") %> prohibited this review from being saved:</h3>
+<div class="container">
+  <h1>Add a class for <%= current_studio.name %></h1>
 
-    <ul>
-    <% @group_class.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @group_class.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@group_class.errors.count, "error") %> prohibited this review from being saved:</h3>
 
-<%= form_for(@group_class) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :duration %>
-  <%= f.text_field :duration %>
-  <%= f.submit %>
-<% end %>
+      <ul>
+      <% @group_class.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for(@group_class) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :duration %>
+    <%= f.text_field :duration %>
+    <%= f.submit %>
+  <% end %>
+</div>

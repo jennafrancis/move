@@ -1,23 +1,25 @@
-<h1>Add a new studio:</h1>
+<div class="container">
+  <h1>Add a new studio:</h1>
 
-<% if @studio.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= pluralize(@studio.errors.count, "error") %> prohibited this studio from being saved:</h3>
+  <% if @studio.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@studio.errors.count, "error") %> prohibited this studio from being saved:</h3>
 
-    <ul>
-    <% @studio.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+      <ul>
+      <% @studio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_for @studio do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :street_address %>
-  <%= f.text_field :street_address %><br>
-  <%= f.label :city_id %>
-  <%= f.collection_select :city_id, City.all, :id, :name %><br>
-  <%= f.submit %>
-<% end %>
+  <%= form_for @studio do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :street_address %>
+    <%= f.text_field :street_address %><br>
+    <%= f.label :city_id %>
+    <%= f.collection_select :city_id, City.all, :id, :name %><br>
+    <%= f.submit %>
+  <% end %>
+</div>
