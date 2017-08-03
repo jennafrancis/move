@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container form-group">
   <h1>Add a new studio:</h1>
 
   <% if @studio.errors.any? %>
@@ -15,11 +15,11 @@
 
   <%= form_for @studio do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, class: "form-control" %><br>
     <%= f.label :street_address %>
-    <%= f.text_field :street_address %><br>
-    <%= f.label :city_id %>
-    <%= f.collection_select :city_id, City.all, :id, :name %><br>
-    <%= f.submit %>
+    <%= f.text_field :street_address, class: "form-control" %><br>
+    <%= f.label :city_id %><br>
+    <%= f.collection_select :city_id, City.all, :id, :name %><br></br>
+    <%= f.submit "Add Studio", class: "btn btn-default" %>
   <% end %>
 </div>
