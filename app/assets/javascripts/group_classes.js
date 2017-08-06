@@ -27,6 +27,9 @@ $(function() {
         var formattedGC = groupClass.format()
 
         $("div#group_class_list").append(formattedGC)
+        $("#group_class_name").val("")
+        $("#group_class_duration").val("")
+        $("#new_group_class input[type=submit]").removeAttr("disabled");
       })
       .error(function(response){
         console.log("oh no i broke!", response)
