@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
       render :new
     else
       if @review.save
-        redirect_to studio_group_class_path(current_studio, @review.group_class)
+        redirect_to studio_path(current_studio)
       else
         render :new
       end
