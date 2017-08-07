@@ -1,7 +1,8 @@
 <div class="container">
   <h1><%= @user.email %></h1>
 
-  <h3><%= pluralize(@user.reviews.count, "Review") %> | <%= @user.average_rating %>/5 Average Rating</h3>
+  <h3><%= pluralize(@user.reviews.count, "Review") %>
+    <% if @user.reviews.first %> | <%= @user.average_rating %>/5 Average Rating</h3>
 
   <h3>Reviews:</h3>
 
@@ -9,6 +10,7 @@
 
   <div class="reviews">
   </div>
+  <% end %>
 </div>
 
 <!-- currently rendering json as
