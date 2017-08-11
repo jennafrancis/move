@@ -7,7 +7,7 @@ $(function(){
       $list.html("")
 
       json.forEach(function(review){
-        $list.append(review.group_class.name + ' at ' + review.group_class.studio.name + '<br>' + review.rating + '/5 "' + review.content + '"<br></br>')
+        $list.append(review.group_class.name + ' at <a href="/studios/' + review.group_class.studio.id + '">'+ review.group_class.studio.name + '</a><br>' + review.rating + '/5 "' + review.content + '"<br></br>')
       });
     });
   });
