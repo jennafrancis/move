@@ -5,13 +5,6 @@
     <hr>
   </div>
 
-  ? Don't see the class you're looking for?
-  <% if current_user %>
-    Add a studio <%= link_to "here", new_studio_path %>.
-  <% else %>
-    <%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to leave a review or add a class!
-  <% end %>
-
   <div id="main">
     Let us know what you think!
     <% if current_user %>
